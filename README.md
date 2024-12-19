@@ -1,6 +1,6 @@
 # Conversor de monedas - Alura Challenge
 
-Con este programa se pueden convertir las monedas: ARS(Peso argentino), BRL(Real brasileño), COP(Peso colombiano) a USD(Dólar estadounidense) y viceversa.
+Con este programa se pueden convertir las monedas: ARS(Peso argentino), BRL(Real brasileño), COP(Peso colombiano), PEN(Sol peruano),  CLP(Peso chileno) a USD(Dólar estadounidense) y viceversa.
 
 Este desafío es parte de la formación de Alura Latam.
 

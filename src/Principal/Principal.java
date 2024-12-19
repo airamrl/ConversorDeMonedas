@@ -12,6 +12,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+
 import java.util.Scanner;
 
 public class Principal {
@@ -45,6 +46,8 @@ public class Principal {
         double brl = conversionRates.get("BRL").getAsDouble();
         double cop = conversionRates.get("COP").getAsDouble();
         double pen  = conversionRates.get("PEN").getAsDouble();
+        double clp  = conversionRates.get("CLP").getAsDouble();
+
 
         //MENU
         String menu = """
@@ -54,7 +57,11 @@ public class Principal {
                       4. Real brasileño => Dolar\s
                       5. Dolar => Peso colombiano
                       6. Peso colombiano => Dolar
-                      7. Salir
+                      7. Dolar => Sol peruano
+                      8. Sol peruano => Dolar\s
+                      9. Dolar => Peso chileno
+                      10. Peso chileno => Dolar
+                      11. Salir
                       
         **********************************************************************
                       """;
@@ -71,22 +78,27 @@ public class Principal {
         do {
             System.out.println("Escoge una opción");
             System.out.println(menu);
-
-
             opcion = 0;
             opcion = inputUsuario.nextInt();
 
+
+
             switch(opcion) {
+
                 case 1:
+
                     System.out.println("Ingresa el monto a convertir: ");
                     double monto = inputUsuario.nextDouble();
                     double dolarPesArgenrino = monto*ars;
+
 
                     System.out.println("************************************************\n");
                     System.out.println("El valor de " + monto + " [USD] "+
                             "equivalen a : " + dolarPesArgenrino+
                             " [ARS]\n") ;
                     System.out.println("************************************************\n");
+
+
 
                     break;
                 case 2:
@@ -98,6 +110,7 @@ public class Principal {
                             "a : " +  BigDecimal.valueOf(pesArgenrinoDolar) +
                             " [USD] ") ;
                     System.out.println("************************************************\n");
+
                     break;
 
                 case 3:
@@ -143,9 +156,53 @@ public class Principal {
                             " [USD] ") ;
                     System.out.println("************************************************\n");
                     break;
-                case 7:
-                    System.out.println("Hasta la próxima");
 
+                case 7:
+                    System.out.println("Ingresa el monto a convertir: ");
+                    double monto7 = inputUsuario.nextDouble();
+                    double dolarSol = monto7*pen;
+                    System.out.println("************************************************\n");
+                    System.out.println("El valor de " + monto7 + " [USD] equivalen a " +
+                            ": " + BigDecimal.valueOf(dolarSol) +
+                            " [PEN] ") ;
+                    System.out.println("************************************************\n");
+                    break;
+
+                case 8:
+                    System.out.println("Ingresa el monto a convertir: ");
+                    double monto8 = inputUsuario.nextDouble();
+                    double solDolar = monto8/brl;
+                    System.out.println("************************************************\n");
+                    System.out.println("El valor de  " + monto8 + " [PEN] equivalen a " +
+                            ": " +   BigDecimal.valueOf(solDolar) +
+                            " [USD] ") ;
+                    System.out.println("************************************************\n");
+                    break;
+                case 9:
+                    System.out.println("Ingresa el monto a convertir: ");
+                    double monto9 = inputUsuario.nextDouble();
+                    double dolarPesChil = monto9*clp;
+                    System.out.println("************************************************\n");
+                    System.out.println("El valor de " + monto9 + " [USD] equivalen a " +
+                            ": " + BigDecimal.valueOf(dolarPesChil) +
+                            " [CLP] ") ;
+                    System.out.println("************************************************\n");
+                    break;
+
+                case 10:
+                    System.out.println("Ingresa el monto a convertir: ");
+                    double monto10 = inputUsuario.nextDouble();
+                    double pesChilDolar = monto10/clp;
+                    System.out.println("************************************************\n");
+                    System.out.println("El valor de  " + monto10 + " [CLP] equivalen a " +
+                            ": " +   BigDecimal.valueOf(pesChilDolar) +
+                            " [USD] ") ;
+                    System.out.println("************************************************\n");
+                    break;
+
+
+                case 11:
+                    System.out.println("Hasta la próxima");
 
 
                 default:
@@ -155,7 +212,7 @@ public class Principal {
             }
 
         }
-        while (opcion != 7);
+        while (opcion != 11);
 
 
 
